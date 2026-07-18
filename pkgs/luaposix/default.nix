@@ -4,6 +4,7 @@
   fetchzip,
   luaAtLeast,
   luaOlder,
+  libxcrypt,
 }:
 
 buildLuarocksPackage {
@@ -21,6 +22,10 @@ buildLuarocksPackage {
   };
 
   disabled = luaOlder "5.1" || luaAtLeast "5.5";
+
+  externalDeps = [
+    { name = "CRYPT"; dep = libxcrypt; }
+  ];
 
   meta = {
     homepage = "http://github.com/luaposix/luaposix/";

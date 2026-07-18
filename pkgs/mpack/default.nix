@@ -1,6 +1,7 @@
 {
   buildLuarocksPackage,
   fetchurl,
+  libmpack,
 }:
 
 buildLuarocksPackage {
@@ -15,6 +16,13 @@ buildLuarocksPackage {
   src = fetchurl {
     url = "https://github.com/libmpack/libmpack-lua/releases/download/1.0.13/libmpack-lua-1.0.13.tar.gz";
     sha256 = "1mwk54jnayw5wjclijyha24xq4sj0lyidb04zyndd9i0yr4anlnx";
+  };
+
+  buildInputs = [ libmpack ];
+
+  env = {
+    USE_SYSTEM_LUA = "yes";
+    USE_SYSTEM_MPACK = "yes";
   };
 
   meta = {
