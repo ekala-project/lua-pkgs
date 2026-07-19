@@ -1,9 +1,8 @@
 {
-  core = ../core-pkgs;
-  # core = builtins.fetchGit {
-  #   url = "git@github.com:ekala-project/corepkgs.git";
-  #   rev = "d3b2c1dfdea50ed87a8a06b25095a8692d44b4c6";
-  # };
+  core = builtins.fetchGit {
+    url = "git@github.com:ekala-project/corepkgs.git";
+    rev = "d42eedf53274274d7bb9666071a8eecaa3dae5a0";
+  };
 
   lib = builtins.fetchGit {
     url = "https://github.com/ekala-project/nix-lib.git";
