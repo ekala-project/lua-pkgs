@@ -6,7 +6,8 @@
   libgit2,
   libgpg-error,
   lua,
-  lux-cli,
+  # Not packaged in corepkgs (or ekapkgs) yet; used when the composed set provides it.
+  lux-cli ? null,
   nix,
   openssl,
   perl,
@@ -26,15 +27,15 @@ toLuaModule (
   rustPlatform.buildRustPackage rec {
     pname = "lux-lua";
 
-    version = lux-cli.version;
+    version = lux-cli.version or "0";
 
-    src = lux-cli.src;
+    src = lux-cli.src or null;
 
     buildAndTestSubdir = "lux-lua";
     buildNoDefaultFeatures = true;
     buildFeatures = [ luaFeature ];
 
-    cargoHash = lux-cli.cargoHash;
+    cargoHash = lux-cli.cargoHash or lib.fakeHash;
 
     nativeBuildInputs = [
       perl
@@ -90,9 +91,10 @@ toLuaModule (
     meta = {
       description = "Lua API for the Lux package manager";
       homepage = "https://lux.lumen-labs.org/";
-      changelog = "https://github.com/lumen-oss/lux/blob/${src.tag}/CHANGELOG.md";
+      changelog = "https://github.com/lumen-oss/lux/blob/${src.tag or "main"}/CHANGELOG.md";
       license = lib.licenses.lgpl3Plus;
       platforms = lib.platforms.all;
+      broken = lux-cli == null;
     };
   }
 )
