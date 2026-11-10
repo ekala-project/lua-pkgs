@@ -4,8 +4,14 @@
   luaAtLeast,
   luaOlder,
   luaposix,
-  readline,
+  pkgs,
 }:
+
+let
+  # Take the system library from the top-level set: in this scope `readline`
+  # resolves to this Lua package itself, which causes infinite recursion.
+  inherit (pkgs) readline;
+in
 
 # upstream broken, can't be generated, so moved out from the generated set
 buildLuarocksPackage {
@@ -26,11 +32,6 @@ buildLuarocksPackage {
     READLINE_INCDIR = "${readline.dev}/include";
     HISTORY_INCDIR = READLINE_INCDIR;
   };
-
-  unpackCmd = ''
-    unzip "$curSrc"
-    tar xf *.tar.gz
-  '';
 
   propagatedBuildInputs = [
     luaposix
