@@ -1,7 +1,9 @@
 {
+  bit32,
   buildLuarocksPackage,
   fetchurl,
   fetchzip,
+  lib,
   luaAtLeast,
   luaOlder,
   libxcrypt,
@@ -22,6 +24,9 @@ buildLuarocksPackage {
   };
 
   disabled = luaOlder "5.1" || luaAtLeast "5.5";
+
+  # The rockspec only adds bit32 for Lua 5.1 (via its `_ENV` trick).
+  propagatedBuildInputs = lib.optionals (luaOlder "5.2") [ bit32 ];
 
   externalDeps = [
     { name = "CRYPT"; dep = libxcrypt; }
