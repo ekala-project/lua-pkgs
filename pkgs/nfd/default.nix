@@ -5,7 +5,8 @@
   pkg-config,
   lib,
   replaceVars,
-  zenity,
+  # Not part of corepkgs; supplied by the composed package set (e.g. ekapkgs).
+  zenity ? null,
 }:
 
 buildLuarocksPackage {
@@ -39,6 +40,6 @@ buildLuarocksPackage {
     description = "Tiny, neat Lua library that invokes native file open and save dialogs";
     homepage = "https://github.com/Alloyed/nativefiledialog/tree/master/lua";
     license = lib.licenses.zlib;
-    broken = lua.luaversion != "5.1";
+    broken = lua.luaversion != "5.1" || zenity == null;
   };
 }
