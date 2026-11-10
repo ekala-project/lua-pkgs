@@ -1,7 +1,8 @@
 {
   buildLuarocksPackage,
   fetchurl,
-  libmpack,
+  # Not part of corepkgs; supplied by the composed package set (e.g. ekapkgs).
+  libmpack ? null,
 }:
 
 buildLuarocksPackage {
@@ -29,5 +30,6 @@ buildLuarocksPackage {
     homepage = "https://github.com/libmpack/libmpack-lua";
     description = "Lua binding to libmpack";
     license.fullName = "MIT";
+    broken = libmpack == null;
   };
 }
