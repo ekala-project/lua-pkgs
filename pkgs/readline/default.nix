@@ -18,10 +18,11 @@ buildLuarocksPackage {
   pname = "readline";
   version = "3.2-0";
 
-  knownRockspec = (fetchurl {
-    url = "mirror://luarocks/readline-3.2-0.rockspec";
-    sha256 = "1r0sgisxm4xd1r6i053iibxh30j7j3rcj4wwkd8rzkj8nln20z24";
-  }).outPath;
+  knownRockspec =
+    (fetchurl {
+      url = "mirror://luarocks/readline-3.2-0.rockspec";
+      sha256 = "1r0sgisxm4xd1r6i053iibxh30j7j3rcj4wwkd8rzkj8nln20z24";
+    }).outPath;
 
   src = fetchurl {
     url = "http://pjb.com.au/comp/lua/readline-3.2.tar.gz";

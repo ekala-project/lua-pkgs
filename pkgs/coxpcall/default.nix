@@ -8,10 +8,11 @@ buildLuarocksPackage {
   pname = "coxpcall";
   version = "1.17.0-1";
 
-  knownRockspec = (fetchurl {
-    url = "mirror://luarocks/coxpcall-1.17.0-1.rockspec";
-    sha256 = "0mf0nggg4ajahy5y1q5zh2zx9rmgzw06572bxx6k8b736b8j7gca";
-  }).outPath;
+  knownRockspec =
+    (fetchurl {
+      url = "mirror://luarocks/coxpcall-1.17.0-1.rockspec";
+      sha256 = "0mf0nggg4ajahy5y1q5zh2zx9rmgzw06572bxx6k8b736b8j7gca";
+    }).outPath;
 
   src = fetchFromGitHub {
     owner = "keplerproject";

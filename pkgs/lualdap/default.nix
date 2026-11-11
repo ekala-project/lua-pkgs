@@ -23,7 +23,10 @@ buildLuarocksPackage {
   disabled = luaOlder "5.1";
 
   externalDeps = [
-    { name = "LDAP"; dep = openldap; }
+    {
+      name = "LDAP";
+      dep = openldap;
+    }
   ];
 
   meta = {

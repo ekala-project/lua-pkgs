@@ -11,10 +11,11 @@ buildLuarocksPackage {
   pname = "luasec";
   version = "1.3.2-1";
 
-  knownRockspec = (fetchurl {
-    url = "mirror://luarocks/luasec-1.3.2-1.rockspec";
-    sha256 = "09nqs60cmbq1bi70cdh7v5xjnlsm2mrxv9pmbbvczijvz184jh33";
-  }).outPath;
+  knownRockspec =
+    (fetchurl {
+      url = "mirror://luarocks/luasec-1.3.2-1.rockspec";
+      sha256 = "09nqs60cmbq1bi70cdh7v5xjnlsm2mrxv9pmbbvczijvz184jh33";
+    }).outPath;
 
   src = fetchFromGitHub {
     owner = "brunoos";
@@ -26,7 +27,10 @@ buildLuarocksPackage {
   disabled = luaOlder "5.1";
 
   externalDeps = [
-    { name = "OPENSSL"; dep = openssl; }
+    {
+      name = "OPENSSL";
+      dep = openssl;
+    }
   ];
 
   propagatedBuildInputs = [ luasocket ];

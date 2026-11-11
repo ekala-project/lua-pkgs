@@ -8,10 +8,11 @@ buildLuarocksPackage {
   pname = "lua-messagepack";
   version = "0.5.4-1";
 
-  knownRockspec = (fetchurl {
-    url = "mirror://luarocks/lua-messagepack-0.5.4-1.rockspec";
-    sha256 = "1jygn6f8ab69z0nn1gib45wvjp075gzxp54vdmgxb3qfar0q70kr";
-  }).outPath;
+  knownRockspec =
+    (fetchurl {
+      url = "mirror://luarocks/lua-messagepack-0.5.4-1.rockspec";
+      sha256 = "1jygn6f8ab69z0nn1gib45wvjp075gzxp54vdmgxb3qfar0q70kr";
+    }).outPath;
 
   src = fetchurl {
     url = "https://framagit.org/fperrad/lua-MessagePack/raw/releases/lua-messagepack-0.5.4.tar.gz";

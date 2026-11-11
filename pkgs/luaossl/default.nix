@@ -18,8 +18,14 @@ buildLuarocksPackage {
   };
 
   externalDeps = [
-    { name = "CRYPTO"; dep = openssl; }
-    { name = "OPENSSL"; dep = openssl; }
+    {
+      name = "CRYPTO";
+      dep = openssl;
+    }
+    {
+      name = "OPENSSL";
+      dep = openssl;
+    }
   ];
 
   meta = {

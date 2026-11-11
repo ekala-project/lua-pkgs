@@ -23,7 +23,10 @@ buildLuarocksPackage {
   disabled = luaOlder "5.1";
 
   externalDeps = [
-    { name = "SQLITE"; dep = sqlite; }
+    {
+      name = "SQLITE";
+      dep = sqlite;
+    }
   ];
 
   meta = {

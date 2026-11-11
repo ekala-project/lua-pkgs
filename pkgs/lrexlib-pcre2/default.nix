@@ -23,7 +23,10 @@ buildLuarocksPackage {
   disabled = luaOlder "5.1";
 
   externalDeps = [
-    { name = "PCRE2"; dep = pcre2; }
+    {
+      name = "PCRE2";
+      dep = pcre2;
+    }
   ];
 
   meta = {

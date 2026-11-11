@@ -10,10 +10,11 @@ buildLuarocksPackage {
   pname = "tiktoken_core";
   version = "0.2.5-1";
 
-  knownRockspec = (fetchurl {
-    url = "mirror://luarocks/tiktoken_core-0.2.5-1.rockspec";
-    sha256 = "17bii1zxxkff0wwsgap4ni1k6ypbrbq5vfs7l34m0n78imx7c2l1";
-  }).outPath;
+  knownRockspec =
+    (fetchurl {
+      url = "mirror://luarocks/tiktoken_core-0.2.5-1.rockspec";
+      sha256 = "17bii1zxxkff0wwsgap4ni1k6ypbrbq5vfs7l34m0n78imx7c2l1";
+    }).outPath;
 
   src = fetchFromGitHub {
     owner = "gptlang";

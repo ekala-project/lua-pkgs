@@ -9,10 +9,11 @@ buildLuarocksPackage {
   pname = "mpack";
   version = "1.0.13-0";
 
-  knownRockspec = (fetchurl {
-    url = "mirror://luarocks/mpack-1.0.13-0.rockspec";
-    sha256 = "1lyjbmyj6yfv0bhyj50rpz2qm993zsbyw494j9kz4bcvxx0gqac5";
-  }).outPath;
+  knownRockspec =
+    (fetchurl {
+      url = "mirror://luarocks/mpack-1.0.13-0.rockspec";
+      sha256 = "1lyjbmyj6yfv0bhyj50rpz2qm993zsbyw494j9kz4bcvxx0gqac5";
+    }).outPath;
 
   src = fetchurl {
     url = "https://github.com/libmpack/libmpack-lua/releases/download/1.0.13/libmpack-lua-1.0.13.tar.gz";

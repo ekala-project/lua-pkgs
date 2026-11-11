@@ -9,10 +9,11 @@ buildLuarocksPackage {
   pname = "lua_cliargs";
   version = "3.0.2-1";
 
-  knownRockspec = (fetchurl {
-    url = "mirror://luarocks/lua_cliargs-3.0.2-1.rockspec";
-    sha256 = "1gp3n9ipaqdk59ilqx1ci5faxmx4dh9sgg3279jb8yfa7wg5b8pf";
-  }).outPath;
+  knownRockspec =
+    (fetchurl {
+      url = "mirror://luarocks/lua_cliargs-3.0.2-1.rockspec";
+      sha256 = "1gp3n9ipaqdk59ilqx1ci5faxmx4dh9sgg3279jb8yfa7wg5b8pf";
+    }).outPath;
 
   src = fetchFromGitHub {
     owner = "lunarmodules";

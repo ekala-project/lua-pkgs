@@ -8,10 +8,11 @@ buildLuarocksPackage {
   pname = "lpeglabel";
   version = "1.6.0-1";
 
-  knownRockspec = (fetchurl {
-    url = "mirror://luarocks/lpeglabel-1.6.0-1.rockspec";
-    sha256 = "13gc32pggng6f95xx5zw9n9ian518wlgb26mna9kh4q2xa1k42pm";
-  }).outPath;
+  knownRockspec =
+    (fetchurl {
+      url = "mirror://luarocks/lpeglabel-1.6.0-1.rockspec";
+      sha256 = "13gc32pggng6f95xx5zw9n9ian518wlgb26mna9kh4q2xa1k42pm";
+    }).outPath;
 
   src = fetchurl {
     url = "https://github.com/sqmedeiros/lpeglabel/archive/v1.6.0-1.tar.gz";
