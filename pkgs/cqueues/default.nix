@@ -3,7 +3,7 @@
   fetchurl,
   lua,
   openssl,
-  gnum4,
+  m4,
 }:
 buildLuarocksPackage {
   pname = "cqueues";
@@ -24,7 +24,7 @@ buildLuarocksPackage {
     { name = "CRYPTO"; dep = openssl; }
     { name = "OPENSSL"; dep = openssl; }
   ];
-  nativeBuildInputs = [ gnum4 ];
+  nativeBuildInputs = [ m4 ];
 
   meta = {
     homepage = "http://25thandclement.com/~william/projects/cqueues.html";
