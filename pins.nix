@@ -1,11 +1,19 @@
+let
+  # Inherit pinning from flake.lock. `fetchGit` rather than `fetchTree` keeps
+  # evaluation working on Nix 2.3.
+  lock = builtins.fromJSON (builtins.readFile ./flake.lock);
+  fetchLocked =
+    name:
+    let
+      node = lock.nodes.${name}.locked;
+    in
+    builtins.fetchGit {
+      url = "https://github.com/${node.owner}/${node.repo}.git";
+      inherit (node) rev;
+    };
+in
 {
-  core = builtins.fetchGit {
-    url = "https://github.com/ekala-project/corepkgs.git";
-    rev = "e4dd52af6f6329bffc97ec5ec782b5b30037f701";
-  };
-
-  lib = builtins.fetchGit {
-    url = "https://github.com/ekala-project/nix-lib.git";
-    rev = "9acd37c8934331a3e53a099f8755101bc2a149e2";
-  };
+  core = fetchLocked "corepkgs";
+  # `nix-lib` follows `corepkgs/nix-lib`, so use the node corepkgs points at.
+  lib = fetchLocked lock.nodes.corepkgs.inputs.nix-lib;
 }
