@@ -10,10 +10,11 @@ buildLuarocksPackage {
   pname = "compat53";
   version = "0.14.4-1";
 
-  knownRockspec = (fetchurl {
-    url = "mirror://luarocks/compat53-0.14.4-1.rockspec";
-    sha256 = "01ahfb6g7ibxrlvypvrsry4pwzfj978afjfa9c5w1s7ahjf95d40";
-  }).outPath;
+  knownRockspec =
+    (fetchurl {
+      url = "mirror://luarocks/compat53-0.14.4-1.rockspec";
+      sha256 = "01ahfb6g7ibxrlvypvrsry4pwzfj978afjfa9c5w1s7ahjf95d40";
+    }).outPath;
 
   src = fetchzip {
     url = "https://github.com/lunarmodules/lua-compat-5.3/archive/v0.14.4.zip";

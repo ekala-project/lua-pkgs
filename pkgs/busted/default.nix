@@ -17,10 +17,11 @@ buildLuarocksPackage {
   pname = "busted";
   version = "2.3.0-1";
 
-  knownRockspec = (fetchurl {
-    url = "mirror://luarocks/busted-2.3.0-1.rockspec";
-    sha256 = "1df41k03r0fy8l62dqywqjlxwmjhifk2krqq675w1cra28z8hb14";
-  }).outPath;
+  knownRockspec =
+    (fetchurl {
+      url = "mirror://luarocks/busted-2.3.0-1.rockspec";
+      sha256 = "1df41k03r0fy8l62dqywqjlxwmjhifk2krqq675w1cra28z8hb14";
+    }).outPath;
 
   src = fetchFromGitHub {
     owner = "lunarmodules";

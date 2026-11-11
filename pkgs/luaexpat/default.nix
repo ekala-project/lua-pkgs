@@ -23,7 +23,10 @@ buildLuarocksPackage {
   disabled = luaOlder "5.1";
 
   externalDeps = [
-    { name = "EXPAT"; dep = expat; }
+    {
+      name = "EXPAT";
+      dep = expat;
+    }
   ];
 
   meta = {

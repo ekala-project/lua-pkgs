@@ -8,10 +8,11 @@ buildLuarocksPackage {
   pname = "inspect";
   version = "3.1.3-0";
 
-  knownRockspec = (fetchurl {
-    url = "mirror://luarocks/inspect-3.1.3-0.rockspec";
-    sha256 = "1iivb2jmz0pacmac2msyqwvjjx8q6py4h959m8fkigia6srg5ins";
-  }).outPath;
+  knownRockspec =
+    (fetchurl {
+      url = "mirror://luarocks/inspect-3.1.3-0.rockspec";
+      sha256 = "1iivb2jmz0pacmac2msyqwvjjx8q6py4h959m8fkigia6srg5ins";
+    }).outPath;
 
   src = fetchurl {
     url = "https://github.com/kikito/inspect.lua/archive/v3.1.3.tar.gz";

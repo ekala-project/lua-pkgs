@@ -13,10 +13,11 @@ buildLuarocksPackage {
   pname = "luaposix";
   version = "36.3-1";
 
-  knownRockspec = (fetchurl {
-    url = "mirror://luarocks/luaposix-36.3-1.rockspec";
-    sha256 = "0jwah6b1bxzck29zxbg479zm1sqmg7vafh7rrkfpibdbwnq01yzb";
-  }).outPath;
+  knownRockspec =
+    (fetchurl {
+      url = "mirror://luarocks/luaposix-36.3-1.rockspec";
+      sha256 = "0jwah6b1bxzck29zxbg479zm1sqmg7vafh7rrkfpibdbwnq01yzb";
+    }).outPath;
 
   src = fetchzip {
     url = "http://github.com/luaposix/luaposix/archive/v36.3.zip";
@@ -29,7 +30,10 @@ buildLuarocksPackage {
   propagatedBuildInputs = lib.optionals (luaOlder "5.2") [ bit32 ];
 
   externalDeps = [
-    { name = "CRYPT"; dep = libxcrypt; }
+    {
+      name = "CRYPT";
+      dep = libxcrypt;
+    }
   ];
 
   meta = {

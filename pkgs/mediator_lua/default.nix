@@ -8,10 +8,11 @@ buildLuarocksPackage {
   pname = "mediator_lua";
   version = "1.1.2-0";
 
-  knownRockspec = (fetchurl {
-    url = "mirror://luarocks/mediator_lua-1.1.2-0.rockspec";
-    sha256 = "0frzvf7i256260a1s8xh92crwa2m42972qxfq29zl05aw3pyn7bm";
-  }).outPath;
+  knownRockspec =
+    (fetchurl {
+      url = "mirror://luarocks/mediator_lua-1.1.2-0.rockspec";
+      sha256 = "0frzvf7i256260a1s8xh92crwa2m42972qxfq29zl05aw3pyn7bm";
+    }).outPath;
 
   src = fetchurl {
     url = "https://github.com/Olivine-Labs/mediator_lua/archive/v1.1.2-0.tar.gz";

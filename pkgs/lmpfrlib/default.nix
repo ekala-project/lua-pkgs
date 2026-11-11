@@ -23,8 +23,14 @@ buildLuarocksPackage {
   disabled = luaOlder "5.3" || luaAtLeast "5.5";
 
   externalDeps = [
-    { name = "GMP"; dep = gmp; }
-    { name = "MPFR"; dep = mpfr; }
+    {
+      name = "GMP";
+      dep = gmp;
+    }
+    {
+      name = "MPFR";
+      dep = mpfr;
+    }
   ];
 
   meta = {

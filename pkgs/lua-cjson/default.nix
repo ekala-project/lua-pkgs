@@ -9,10 +9,11 @@ buildLuarocksPackage {
   pname = "lua-cjson";
   version = "2.1.0.10-1";
 
-  knownRockspec = (fetchurl {
-    url = "mirror://luarocks/lua-cjson-2.1.0.10-1.rockspec";
-    sha256 = "05sp7rq72x4kdkyid1ch0yyscwsi5wk85d2hj6xwssz3h8n8drdg";
-  }).outPath;
+  knownRockspec =
+    (fetchurl {
+      url = "mirror://luarocks/lua-cjson-2.1.0.10-1.rockspec";
+      sha256 = "05sp7rq72x4kdkyid1ch0yyscwsi5wk85d2hj6xwssz3h8n8drdg";
+    }).outPath;
 
   src = fetchFromGitHub {
     owner = "openresty";

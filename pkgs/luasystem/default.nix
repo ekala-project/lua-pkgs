@@ -12,10 +12,11 @@ buildLuarocksPackage {
   pname = "luasystem";
   version = "0.7.1-1";
 
-  knownRockspec = (fetchurl {
-    url = "mirror://luarocks/luasystem-0.7.1-1.rockspec";
-    sha256 = "10hnakzkyjqh6plks2wz2844l7rw619vfc5b3idqw9pndpw6fylz";
-  }).outPath;
+  knownRockspec =
+    (fetchurl {
+      url = "mirror://luarocks/luasystem-0.7.1-1.rockspec";
+      sha256 = "10hnakzkyjqh6plks2wz2844l7rw619vfc5b3idqw9pndpw6fylz";
+    }).outPath;
 
   src = fetchFromGitHub {
     owner = "lunarmodules";

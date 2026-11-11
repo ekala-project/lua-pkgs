@@ -9,10 +9,11 @@ buildLuarocksPackage {
   pname = "penlight";
   version = "1.15.0-1";
 
-  knownRockspec = (fetchurl {
-    url = "mirror://luarocks/penlight-1.15.0-1.rockspec";
-    sha256 = "0m4m20vpvzkr2h9xs8q2a3wkib0jxzbkwb8hy6abxyvkm6r7fnvf";
-  }).outPath;
+  knownRockspec =
+    (fetchurl {
+      url = "mirror://luarocks/penlight-1.15.0-1.rockspec";
+      sha256 = "0m4m20vpvzkr2h9xs8q2a3wkib0jxzbkwb8hy6abxyvkm6r7fnvf";
+    }).outPath;
 
   src = fetchFromGitHub {
     owner = "lunarmodules";

@@ -23,7 +23,10 @@ buildLuarocksPackage {
   disabled = luaOlder "5.1";
 
   externalDeps = [
-    { name = "ONIG"; dep = oniguruma; }
+    {
+      name = "ONIG";
+      dep = oniguruma;
+    }
   ];
 
   meta = {

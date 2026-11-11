@@ -20,7 +20,10 @@ buildLuarocksPackage {
   disabled = luaOlder "5.1";
 
   externalDeps = [
-    { name = "EVENT"; dep = libevent; }
+    {
+      name = "EVENT";
+      dep = libevent;
+    }
   ];
 
   meta = {
