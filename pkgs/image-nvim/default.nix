@@ -4,7 +4,7 @@
   lib,
   lua,
   luaOlder,
-  luajitPackages,
+  magick,
 }:
 
 buildLuarocksPackage rec {
@@ -24,7 +24,7 @@ buildLuarocksPackage rec {
 
   propagatedBuildInputs = [
     lua
-    luajitPackages.magick
+    magick
   ];
 
   meta = {
