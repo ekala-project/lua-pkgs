@@ -72,14 +72,6 @@ let
     in
     result.success && result.value;
 
-  # Defined in corepkgs and broken there, so nothing in this repository can fix
-  # them. Drop each entry once corepkgs is fixed and the pin bumped.
-  excluded = [
-    # pkgs-many/lua/luarocks/luarocks-nix.nix takes `nurl`, which corepkgs
-    # does not package.
-    "luarocks-nix"
-  ];
-
   # `<variant>.<package>`, e.g. `v5_1.luaposix`.
   pairs = lib.concatMap (
     variant:
@@ -89,7 +81,7 @@ let
     map (name: {
       name = "${variant}.${name}";
       value = set.${name};
-    }) (builtins.filter (name: !builtins.elem name excluded) (builtins.attrNames set))
+    }) (builtins.attrNames set)
   ) (builtins.attrNames variants);
 in
 {
