@@ -1,9 +1,30 @@
 {
   description = "Lua packages for poly-repo Nixpkgs";
 
-  outputs = { ... }: {
-    # Primary usage: import ./. {} (legacy, non-flake)
-    # This flake entry point is provided for convenience.
-    lib.eval = import ./.;
+  inputs = {
+    corepkgs.url = "github:ekala-project/corepkgs";
+    nix-lib.follows = "corepkgs/nix-lib";
+    systems.follows = "corepkgs/systems";
   };
+
+  outputs =
+    {
+      corepkgs,
+      nix-lib,
+      systems,
+      ...
+    }:
+    let
+      forAllSystems = nix-lib.lib.genAttrs (import systems);
+    in
+    {
+      legacyPackages = forAllSystems (
+        system:
+        import ./. {
+          inherit system;
+        }
+      );
+
+      formatter = corepkgs.formatter;
+    };
 }
